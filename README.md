@@ -1,4 +1,4 @@
-# Nacker Hews
+# Nacker Hews [![Build Status](https://travis-ci.org/chris-fa/react-hn-clone.svg?branch=master)](https://travis-ci.org/chris-fa/react-hn-clone)
 
 It's kind of a Hacker News project developed in less than 8 hours (needed to read some docs). The objective is to use the following technologies:
 
