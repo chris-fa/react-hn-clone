@@ -57,5 +57,13 @@ describe('NewsPage', () => {
       expect(wrapper.state().selectedEntry).to.equal(news.find(n => n.id === 1));
       expect(wrapper.find(CommentPanel)).to.have.length(1);
     });
+
+    it('should hide the comment panel once the close button is clicked', () => {
+      wrapper.instance().onCommentPanelCloseClick();
+
+      wrapper.update();
+
+      expect(wrapper.find(CommentPanel)).to.have.length(0);
+    });
   });
 });

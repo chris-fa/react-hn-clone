@@ -14,7 +14,8 @@ class NewsPage extends Component {
       news: [],
     };
 
-    this.onCommentLinkClick = this.onCommentLinkClick.bind(this);
+    this.onCommentLinkClick       = this.onCommentLinkClick.bind(this);
+    this.onCommentPanelCloseClick = this.onCommentPanelCloseClick.bind(this);
   }
 
   componentWillMount() {
@@ -28,6 +29,12 @@ class NewsPage extends Component {
   onCommentLinkClick(id) {
     this.setState((prevState, props) => ({
       selectedEntry: prevState.news.find(n => n.id === id),
+    }));
+  }
+
+  onCommentPanelCloseClick() {
+    this.setState((prevState, props) => ({
+      selectedEntry: null,
     }));
   }
 
@@ -49,7 +56,9 @@ class NewsPage extends Component {
         { this.state.selectedEntry !== null &&
             <div className="column">
               <div style={{margin: '0 24px' }}>
-                <CommentPanel comments={ this.state.selectedEntry.comments } />
+                <CommentPanel
+                  comments={ this.state.selectedEntry.comments }
+                  onCloseClick={ this.onCommentPanelCloseClick } />
               </div>
             </div>
         }
